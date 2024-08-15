@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SurForum</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <nav class="navigation hide" id="navigation">
+                <ul class="nav-list">
+                    <span class="close-icon" id="iconClose" onclick="showIconBar()"><i class="close-iconed">
+                        <span class="material-symbols-outlined">
+                        close
+                        </span></i>
+                    </span>
+                    <li class="nav-item">
+                        <a href="{{ url_for('home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('posts') }}">Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Log Out</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('detail') }}">Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('login') }}">Login / Signup</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="branding" style="position:absolute;">
+                <h1 class="Site-Title">
+                    SurForum
+                </h1>
+            </div>
+            <a href="#" class="bar-icon" id="iconBar" onclick="hideIconBar()"><i class="icon-menu-bar">
+                    <span class="material-symbols-outlined">
+                        menu
+                        </span>
+                </i></a>
+            </i></a>
+        </div>
+        <!--Search Box-->
+        <div class="search-box">
+            <div>
+                <select name="drop-down-selector" id="">
+                    <option value="everything">Everything</option>
+                    <option value="titles">Titles</option>
+                    <option value="description">Descriptions</option>
+                </select>
+                <input type="text" name="q" id="" placeholder="search...">
+                <button class="the-search-icon"><i class="search-icon">
+                    <span class="material-symbols-outlined" id="search-google-icon" style="font-size: 10px;">
+                        search
+                    </span>
+                </i></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="subforum">
+            <div class="subforum-title">
+                <h1>Mallorca Surf Conditions Today</h1>
+
+            </div>
+            <div class="subforum-row">
+                <div class="subforum-icon subforum-column center">
+                    <i class="icon-surfing">
+                        <span class="material-symbols-outlined">
+                            surfing
+                        </span>
+                    </i>
+                </div>
+                <div class="subforum-description subforum-column">
+                    <h2><a href="">Description Title</a></h2>
+                    <p>Share live conditions at Mallorcas surf spots with other surfers!</p>
+                </div>
+                <div class="subforum-stats subforum-column center">
+                    <span>24 Posts | 9 Topics</span>
+                </div>
+                <div class="subforum-info subforum-column">
+                    <b><a href="">Last Post</a></b> by <a href="">User 123</a>
+                    <br>
+                    on <small>22 mar 2025 at 22:41</small>
+                </div>
+            </div>
+            <hr class="subforum-divider">
+            <div class="subforum-row">
+                <div class="subforum-icon subforum-column center">
+                    <i class="icon-surfing">
+                        <span class="material-symbols-outlined">
+                            surfing
+                        </span>
+                    </i>
+                </div>
+                <div class="subforum-description subforum-column">
+                    <h2><a href="">Description Title</a></h2>
+                    <p>Share live conditions at Mallorcas surf spots with other surfers!</p>
+                </div>
+                <div class="subforum-stats subforum-column center">
+                    <span>24 Posts | 9 Topics</span>
+                </div>
+                <div class="subforum-info subforum-column">
+                    <b><a href="">Last Post</a></b> by <a href="">User 123</a>
+                    <br>
+                    on <small>22 mar 2025 at 22:41</small>
+                </div>
+            </div>
+            <hr class="subforum-divider">
+        </div>
+    </div> 
+    <div class="login-status">
+        {% if 'username' in session %}
+            <p>Welcome, {{ session['username'] }} | <a href="{{ url_for('logout') }}">Log Out</a></p>
+        {% else %}
+            <p><a href="{{ url_for('login') }}">Log In</a></p>
+        {% endif %}
+    </div>
+    
+
+    <!--Forum Info-->
+    <div class="forum-info">
+        <div class="chart">
+            My Forum - Stats &nbsp;<i class="chart-icon">
+                <span class="material-symbols-outlined">
+                    <div class="monitoring-chart">
+                        monitoring
+                    </div>
+                </span>
+            </i>
+        </div>
+        <div>
+            <span>
+                <u>2</u> Posts in <u>2</u> Locations by <u>2</u> Users <br>
+            </span>
+            <span>
+                Latest Posts: <b><a href="#">Random Post</a></b> on 29 of april 2024 by <a href="#">RandomUser</a>
+            </span>
+        </div>
+    </div>
+
+    <footer>
+        <span>
+            &copy; &nbsp;Liam Cabrera | All rights reserved.
+        </span>
+    </footer>
+
+
+
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

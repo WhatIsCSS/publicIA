@@ -1,0 +1,726 @@
+/*global shi*/
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 14px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(255,255,255)
+    color(#FEFEFE);
+}
+
+a{
+    color: #2f8dff;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+/*home.html shi*/
+.container{
+    margin: 20px;
+    padding: 20px;
+}
+
+.subforum{
+    margin-top: 20px;
+}   
+
+.subforum-title{
+    text-align: center;
+    background-color: #2f8dff;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 4px;
+}
+
+.subforum-description *{
+    margin-block: 0;
+}
+
+.subforum-row{
+    display: grid;
+    grid-template-columns: 7% 60% 13% 20%;
+
+}
+
+.subforum-column{
+    padding: 10px;
+    margin: 4px;
+    border-radius: 5px;
+    background-color: #F1F5FF;
+}
+
+.material-symbols-outlined{
+    font-size: 50px;
+}
+
+.subforum-stats{
+    font-size: 12px;
+}
+
+.subforum-divider{
+    display: block;
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(47, 141, 255, 0), rgba(47, 141, 255, 0.8), rgba(47, 141, 255, 0));
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*For smaller screen sizes, e.g. smartphones */
+@media screen and (max-width: 500px) {
+    .container{
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .subforum-row{
+        display: grid;
+        grid-template-columns: 25% 75%;
+        grid-template-rows: 65% 35%;
+    
+    }
+}
+
+/*For tablet size screens*/
+@media screen and (min-width: 500px) and (max-width: 1024px) {
+    .container{
+        margin: 15px;
+        padding: 15px;
+    }
+
+    .subforum-row{
+        display: grid;
+        grid-template-columns: 10% 60% 10% 20%;
+    
+    }
+
+    .material-symbols-outlined{
+        font-size: 40px;
+    }
+
+    .html{
+        font-size: 16px;
+    }
+
+    .h1{
+        font-size: 18px;
+    }
+}
+
+
+/*Is the User Logged in?---------------------------------------------------------------*/
+
+.login-status {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 14px;
+}
+
+.login-status a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.login-status a:hover {
+    text-decoration: underline;
+}
+
+
+/*POP UP IF USER IS NOT SIGNED IN*/
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.popup-content p {
+    margin-bottom: 20px;
+}
+
+.popup-content button {
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+
+/*Navigation Bar*/
+header{
+    margin-inline: 10px;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+}
+
+.navigation{
+    background-color: #ffffff;
+    padding: 10px;
+    width: 70%;
+    display: inline-block;
+    border-radius: 5px;
+    max-height: 80px;
+    margin-right: 10px;
+}
+
+.nav-list{
+    list-style-type: none;
+}
+
+
+.nav-item a{
+    float: right;
+    display: block;
+    text-align: center;
+    margin-inline: 10px; /* Reduced margin to allow all items to fit */
+    font-size: 20px;
+    padding: 10px;
+    color: #000000;
+}
+
+.nav-item a:hover{
+    background-color: rgba(241, 245, 255, 1);
+}
+
+.close-icon i{
+    font-size: 60px;
+    float: left;
+    cursor: pointer;
+    margin-left: 175px;
+    margin-top: 0px;
+}
+
+.hide{
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.bar-icon{
+    font-size: 50px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-left: 220px;
+    cursor: pointer;
+}
+
+.branding{
+    font-size: 50px;
+    display: inline-block;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 0px;
+    cursor: pointer;
+}
+
+/*navigation for phones*/
+@media screen and (max-width: 500px) {
+    .navigation{
+        max-height: auto;
+    }
+
+    .nav-item a{
+        float: center;
+        display: inline;
+        text-align: center;
+        margin-inline: 0px;
+        font-size: 10px;
+        padding: 5px;
+    }
+    
+    .nav-item a:hover{
+        background-color: rgba(241, 245, 255, 1);
+    }
+    
+    .close-icon i{
+        font-size: 30px;
+        max-height: auto;
+        margin-left: 180px;
+        margin-top: 0px;
+    }
+    
+    .branding{
+        font-size: 30px;
+    }
+}
+
+/*For tablet sized screend*/
+@media screen and (min-width: 500px) and (max-width: 1024px){
+    .navigation{
+        max-height: auto;
+    }
+
+    .nav-item a{
+        float: center;
+        display: inline;
+        text-align: center;
+        margin-inline: 0px;
+        font-size: 18px;
+        padding: 5px;
+    }
+    
+    .nav-item a:hover{
+        background-color: rgba(241, 245, 255, 1);
+    }
+    
+    .close-icon i{
+        font-size: 40px;
+        max-height: auto;
+        margin-left: 180px;
+        margin-top: 0px;
+    }
+    
+    .branding{
+        font-size: 45px;
+    }
+}
+
+
+/*POSTING COMMENTS ----------------------______________*/
+/* Floating Add Comment Button */
+.add-comment-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Modal Styles */
+/* Updated Modal Styles */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    display: none; /* Hide the modal by default */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 60%;
+    max-width: 700px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/*Submit Button Style */
+button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 15px 30px; /* Increase padding to make the button larger */
+    font-size: 18px; /* Increase font size */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 100%; /* Make the button full-width */
+}
+
+button[type="submit"]:hover {
+    background-color: #218838; /* Darken the button on hover */
+}
+
+
+
+
+/* Dropdown Menu */
+#surf-condition {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Adjustments for other inputs and textarea */
+#title, #location, #description {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+/* Icons Container */
+.icons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.icons-container label {
+    cursor: pointer;
+}
+
+.icons-container img {
+    width: 50px;
+    height: 50px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+}
+
+.icons-container input[type="radio"]:checked + img {
+    border-color: #007BFF;
+}
+
+
+
+
+/*search box*/
+.search-box{
+    margin-top: 2px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-icon{
+    font-size: 10px;
+}
+ 
+.search-box select{
+    padding: 10px;
+}
+
+.search-box input{
+    padding: 10px;
+}
+
+.search-box button{
+    padding: 10px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.search-box button:hover{
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #000000;
+}
+
+/*For small Phones*/
+@media screen and (max-width: 475px) {
+    .search-box input, .search-box button, .search-box select{
+        min-width: 300px;
+        margin-top: 5px;
+    }
+}
+
+
+/*Forum Info/Stats Section*/
+.forum-info{
+    padding: 20px;
+    background-color: #F1F5FF;
+
+}
+
+.monitoring-chart{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*Footer*/
+.footer{
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #F1F5FF;
+    display: block;
+    text-align: center;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+/*posts.html page*/
+
+.table-head{
+    display: flex;
+
+
+}
+
+.table-head div{
+    padding: 5px;
+    margin: 2px;
+    background-color: #F1F5FF;
+    font-weight: bold;
+}
+
+.table-head .status{
+    flex: 5%;
+}
+
+.table-head .subjects{
+    flex: 70%;
+}
+
+.table-head .replies{
+    flex: 10%;
+}
+
+.table-head .last-reply{
+    flex: 15%;
+}
+
+/* Table Bodu */
+.table-row{
+    display: flex;
+}
+
+.table-row .status, .table-row .subjects, .table-row .replies, .table-row .last-reply{
+    padding: 5px;
+    margin: 2px;
+    background-color: #F1F5FF;
+
+}
+
+.table-row .status{
+    flex: 5%;
+    font-size: 30px;
+    text-align: center;
+}
+
+.table-row .subjects{
+    flex: 70%;
+}
+
+.table-row .replies{
+    flex: 10%;
+}
+
+.table-row .last-reply{
+    flex: 15%;
+}
+
+/*Pagination*/
+.pagination{
+    padding: 20px;
+    font-size: 15px;
+}
+
+.pagination a{
+    color: #2f8dff;
+    margin-inline: 5px;
+    padding: 5px 10px;
+    border: solid 0.5px #000000;
+}
+
+/*give feel of being on the button*/
+.pagination a:hover{
+    opacity: 0.5;
+}
+
+/*Navigation section*/
+.navigate{
+    margin-block: 20px;
+    font-weight: lighter;
+    font-size: 24px;
+}
+
+.navigate a{
+    color: #000000;
+}
+
+/*give feel of being on the button, improves usability as it makes it obvious that it's a link*/
+.navigate a:hover{
+    color: #2f8dff;
+    font-weight: bolder;
+}
+
+
+
+/*Explanations for the icons*/
+.explanation-hide-fire{
+    display: none;
+    position: absolute;
+    opacity: 0;
+
+}
+
+.fire-icon-specific:hover + .explanation-hide-fire {
+    display: block;
+    opacity: 1;
+    font-size: 9px;
+    background-color: rgb(184, 184, 184);
+    color: #000000;
+    transform: translateY(-20px);
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+.explanation-hide-wind{
+    display: none;
+    position: absolute;
+    opacity: 0;
+
+}
+
+.too-windy-icon:hover + .explanation-hide-wind {
+    display: block;
+    opacity: 1;
+    font-size: 9px;
+    background-color: rgb(184, 184, 184);
+    color: #000000;
+    transform: translateY(-20px);
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+.explanation-hide-sad{
+    display: none;
+    position: absolute;
+    opacity: 0;
+
+}
+
+.sad-emote-icon:hover + .explanation-hide-sad {
+    display: block;
+    opacity: 1;
+    font-size: 9px;
+    background-color: rgb(184, 184, 184);
+    color: #000000;
+    transform: translateY(-20px);
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+.explanation-hide-kite{
+    display: none;
+    position: absolute;
+    opacity: 0;
+
+}
+
+.good-kitesurfing-icon:hover + .explanation-hide-kite {
+    display: block;
+    opacity: 1;
+    font-size: 9px;
+    background-color: rgb(184, 184, 184);
+    color: #000000;
+    transform: translateY(-20px);
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+.explanation-hide-surf{
+    display: none;
+    position: absolute;
+    opacity: 0;
+
+}
+
+.good-surfing-icon:hover + .explanation-hide-surf {
+    display: block;
+    opacity: 1;
+    font-size: 9px;
+    background-color: rgb(184, 184, 184);
+    color: #000000;
+    transform: translateY(-20px);
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+.explanation-hide-wave{
+    display: none;
+    position: absolute;
+    opacity: 0;
+
+}
+
+.big-waves-icon:hover + .explanation-hide-wave {
+    display: block;
+    opacity: 1;
+    font-size: 9px;
+    background-color: rgb(184, 184, 184);
+    color: #000000;
+    transform: translateY(-20px);
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+/*Under The Page Icon Description*/
+.fire-icon-descific{
+    font-size: 25px;
+    position: relative;
+    top: 7px;
+    left: 10px;
+}
+.windy-icon-descific{
+    font-size: 25px;
+    position: relative;
+    top: 7px;
+    left: 10px;
+}
+.sad-icon-descific{
+    font-size: 25px;
+    position: relative;
+    top: 7px;
+    left: 10px;
+}
+.kite-icon-descific{
+    font-size: 25px;
+    position: relative;
+    top: 7px;
+    left: 10px;
+}
+.surf-icon-descific{
+    font-size: 25px;
+    position: relative;
+    top: 7px;
+    left: 10px;
+}
+.wave-icon-descific{
+    font-size: 25px;
+    position: relative;
+    top: 7px;
+    left: 10px;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
